@@ -1,0 +1,23 @@
+from twilio.rest import Client
+
+# Replace these with your actual Account SID and Auth Token from Twilio
+account_sid = "AC3d7949d83ad3d68634b8a849da0f684a"
+auth_token = "f47e066e357380c795a7dabbd6379792"
+
+# Replace this with your Twilio WhatsApp sandbox number
+twilio_whatsapp_number = "+14155238886"
+
+# Replace this with the recipient's WhatsApp number with the country code
+recipient_whatsapp_number = "+918824510564"
+
+# Create a Twilio client
+client = Client(account_sid, auth_token)
+
+# Send the WhatsApp message
+message = client.messages.create(
+    body="Hello from Twilio! This is a test WhatsApp message.",
+    from_=f"whatsapp:{twilio_whatsapp_number}",
+    to=f"whatsapp:{recipient_whatsapp_number}"
+)
+
+print("WhatsApp message sent successfully!")
